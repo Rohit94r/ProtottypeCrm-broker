@@ -197,7 +197,7 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
       .catch(() => setPushEnabled(true));
   }, [user?.user_id, user?.employee_id, user?.acting_as_employee_id, authLoading]);
 
-  usePushNotifications(pushEnabled, refresh);
+  usePushNotifications(false, refresh);
 
   useEffect(() => {
     if (!user || authLoading || recipientIds.length === 0 || !isSupabaseRealtimeConfigured()) return;

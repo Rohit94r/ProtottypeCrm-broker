@@ -109,9 +109,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [refresh]);
 
   useEffect(() => {
-    if (!user || Platform.OS !== 'web' || typeof window === 'undefined') return;
-    if (!('Notification' in window) || Notification.permission === 'denied') return;
-    registerPushToken().catch(() => {});
+    // Push notifications disabled for demo
   }, [user?.user_id, user?.employee_id]);
 
   useEffect(() => {

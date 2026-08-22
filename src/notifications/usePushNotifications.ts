@@ -45,50 +45,7 @@ function showBrowserNotification(title: string, body: string, tag?: string) {
 }
 
 export async function registerPushToken(): Promise<boolean> {
-  if (Platform.OS !== 'web' || typeof window === 'undefined') return false;
-  if (!pushConfigured()) {
-    console.info('Push: set EXPO_PUBLIC_FIREBASE_* in Vercel to enable mobile notifications');
-    return false;
-  }
-  if (!('Notification' in window)) return false;
-
-  const permission = await Notification.requestPermission();
-  if (permission !== 'granted') return false;
-
-  const reg = await ensureServiceWorker();
-  if (!reg) return false;
-
-  const { initializeApp, getApps } = await import('firebase/app');
-  const { getMessaging, getToken, isSupported } = await import('firebase/messaging');
-
-  if (!(await isSupported())) return false;
-
-  const app = getApps().length
-    ? getApps()[0]
-    : initializeApp({
-        apiKey: API_KEY,
-        authDomain: AUTH_DOMAIN,
-        projectId: PROJECT_ID,
-        storageBucket: STORAGE_BUCKET,
-        messagingSenderId: MESSAGING_SENDER_ID,
-        appId: APP_ID,
-      });
-
-  const messaging = getMessaging(app);
-  const token = await getToken(messaging, {
-    vapidKey: VAPID_KEY,
-    serviceWorkerRegistration: reg,
-  });
-
-  if (!token) return false;
-
-  await api.post('/notifications/fcm-token', {
-    fcm_token: token,
-    platform: 'web',
-    user_agent: navigator.userAgent,
-  });
-  console.info('FCM token registered — mobile/PWA push enabled');
-  return true;
+  return false;
 }
 
 /** Register web push when enabled (call from app shell, not only settings page). */

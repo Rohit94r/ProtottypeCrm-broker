@@ -13,12 +13,8 @@ type TrackableUser = {
 const PING_INTERVAL_MS = 60 * 1000; // every 60s while logged in on mobile/browser
 const MIN_PING_GAP_MS = 45 * 1000;
 
-export function shouldTrackEmployeeLocation(user: TrackableUser): boolean {
-  if (!user) return false;
-  const empId = user.acting_as_employee_id || user.employee_id;
-  if (!empId) return false;
-  if (user.role === 'admin' && !user.employee_id && !user.acting_as_employee_id) return false;
-  return true;
+export function shouldTrackEmployeeLocation(_user: TrackableUser): boolean {
+  return false;
 }
 
 async function sendLocationPing(lat: number, lng: number, accuracy?: number) {
