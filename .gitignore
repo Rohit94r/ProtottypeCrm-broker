@@ -1,0 +1,8 @@
+node_modules/
+.expo/
+dist/
+.metro-cache/
+*.log
+.env
+.DS_Store
+tsc_errors*.txt
