@@ -6,6 +6,7 @@ import { useAuth } from '../auth/AuthContext';
 import { visibleNavFor, ROLES } from '../lib/constants';
 import { NARROW_BREAKPOINT, SIDEBAR_WIDTH_COLLAPSED, SIDEBAR_WIDTH_EXPANDED, SIDEBAR_WIDTH_MOBILE } from '../layout/SidebarLayoutContext';
 import { Ionicons } from '@expo/vector-icons';
+import { Logo } from './Logo';
 
 const ICON_MAP: Record<string, any> = {
   dashboard: 'speedometer-outline',
@@ -52,11 +53,7 @@ export function Sidebar({ collapsed, onToggle }: Props) {
       borderRightColor: colors.border,
     }]} testID="sidebar">
       <View style={[styles.brand, { borderBottomColor: colors.border, height: isNarrow ? 56 : 64, paddingHorizontal: isNarrow ? 8 : 14 }]}>
-        <Image
-          source={require('../../assets/images/logo.png')}
-          style={[styles.logoImage, effectiveCollapsed && { width: isNarrow ? 34 : 38, height: isNarrow ? 34 : 38 }]}
-          resizeMode="contain"
-        />
+        <Logo size={effectiveCollapsed ? (isNarrow ? 34 : 38) : 44} />
         {!effectiveCollapsed && (
           <View style={{ flex: 1 }}>
             <Text style={[styles.brandTitle, { color: colors.text }]}>Nexus CRM</Text>
@@ -170,11 +167,6 @@ const styles = StyleSheet.create({
     height: 64,
     borderBottomWidth: 1,
     gap: 10,
-  },
-  logoImage: {
-    width: 44,
-    height: 44,
-    borderRadius: 8,
   },
   brandTitle: { fontSize: 14, fontWeight: '700' },
   brandSub: { fontSize: 11, marginTop: 1 },

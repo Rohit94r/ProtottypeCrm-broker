@@ -13,7 +13,7 @@ export default function Root({ children }: PropsWithChildren) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#2563EB" />
+        <meta name="theme-color" content="#E88B35" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

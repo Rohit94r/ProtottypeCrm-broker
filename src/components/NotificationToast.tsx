@@ -108,7 +108,7 @@ export function NotificationToast() {
   const openNotification = (n: QueuedToast) => {
     dismiss(n.notification_id);
     if (n.lead_id) {
-      router.push(leadDeepLinkPath(n.lead_id, user?.role, user?.email, user?.allowed_pages) as any);
+      router.push(leadDeepLinkPath(n.lead_id, user?.role, user?.email, user?.allowed_pages ?? undefined) as any);
     } else {
       router.push('/(app)/notifications' as any);
     }

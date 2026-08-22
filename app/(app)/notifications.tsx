@@ -68,14 +68,14 @@ export default function NotificationsPage() {
 
   useEffect(() => {
     if (params.lead) {
-      router.push(leadDeepLinkPath(String(params.lead), user?.role, user?.email, user?.allowed_pages) as any);
+      router.push(leadDeepLinkPath(String(params.lead), user?.role, user?.email, user?.allowed_pages ?? undefined) as any);
     }
   }, [params.lead]);
 
   const onOpen = async (leadId?: string | null, id?: string) => {
     if (id) await markRead(id);
     if (leadId) {
-      router.push(leadDeepLinkPath(leadId, user?.role, user?.email, user?.allowed_pages) as any);
+      router.push(leadDeepLinkPath(leadId, user?.role, user?.email, user?.allowed_pages ?? undefined) as any);
     }
   };
 

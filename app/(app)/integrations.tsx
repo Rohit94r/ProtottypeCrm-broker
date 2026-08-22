@@ -44,6 +44,7 @@ type FacebookVerify = {
   token_valid: boolean;
   token_error?: string | null;
   token_type?: string | null;
+  token_authenticated?: boolean;
   lead_api_ready?: boolean;
   db_meta_leads: number;
   forms_count?: number;

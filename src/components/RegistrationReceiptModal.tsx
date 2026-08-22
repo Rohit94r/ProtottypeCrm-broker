@@ -240,7 +240,16 @@ function ReceiptLine({ label, value, colors }: { label: string; value: string; c
 
 function Field({
   label, value, onChange, colors, keyboardType, placeholder, multiline, testID,
-}: any) {
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  colors: any;
+  keyboardType?: any;
+  placeholder?: string;
+  multiline?: boolean;
+  testID?: string;
+}) {
   return (
     <View style={{ marginTop: 10 }}>
       <Text style={[styles.fieldLabel, { color: colors.textMuted }]}>{label}</Text>

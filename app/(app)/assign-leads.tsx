@@ -167,7 +167,7 @@ export default function AssignLeads() {
   const [leads, setLeads] = useState<any[]>(cachedAssign?.leads ?? []);
   const [employees, setEmployees] = useState<any[]>(cachedAssign?.employees ?? []);
   const [assignmentStats, setAssignmentStats] = useState<any[]>(cachedAssign?.assignmentStats ?? []);
-  const [total, setTotal] = useState(cachedAssign?.total ?? 0);
+  const [total, setTotal] = useState<number>(cachedAssign?.total ?? 0);
   const [hasMore, setHasMore] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [facets, setFacets] = useState<any>(cachedAssign?.facets ?? null);

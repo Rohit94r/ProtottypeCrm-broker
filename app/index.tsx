@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Pressable, Image, ScrollView, Platform, Dimensions, TextInput, ActivityIndicator, Modal } from 'react-native';
+import { View, Text, StyleSheet, Pressable, ScrollView, Platform, Dimensions, TextInput, ActivityIndicator, Modal } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../src/theme/ThemeContext';
 import { useAuth } from '../src/auth/AuthContext';
 import { defaultRouteFor } from '../src/lib/constants';
 import { warmUpBackend } from '../src/lib/api';
-
-const HERO_IMG = 'https://static.prod-images.emergentagent.com/jobs/bcbec8c6-82ba-422e-a9c5-02053dc9d61d/images/35dda4ad3fda80d98d3e686fde61d9fcf2b36147d133e43a32eed389dcf53913.png';
+import { Logo } from '../src/components/Logo';
 
 export default function Index() {
   const router = useRouter();
@@ -121,14 +120,9 @@ export default function Index() {
       {/* LEFT — HERO */}
       {isWide && (
         <View style={styles.hero}>
-          <Image source={{ uri: HERO_IMG }} style={styles.heroImg} />
           <View style={styles.heroOverlay}>
             <View style={styles.heroBrand}>
-              <Image
-                source={require('../assets/images/logo.png')}
-                style={styles.logoImage}
-                resizeMode="contain"
-              />
+              <Logo size={44} />
               <Text style={styles.heroBrandTitle}>Nexus CRM</Text>
             </View>
             <View style={{ flex: 1 }} />
@@ -156,11 +150,7 @@ export default function Index() {
         <View style={styles.rightInner}>
           <View style={styles.topRow}>
             <View style={styles.brandRow}>
-              <Image
-                source={require('../assets/images/logo.png')}
-                style={styles.logoImageSm}
-                resizeMode="contain"
-              />
+              <Logo size={38} />
               <Text style={[styles.brandText, { color: colors.text }]}>Nexus CRM</Text>
             </View>
             <Pressable
@@ -295,15 +285,18 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, flexDirection: 'row' },
-  hero: { width: '50%', position: 'relative' },
-  heroImg: { width: '100%', height: '100%', resizeMode: 'cover' },
+  hero: {
+    width: '50%',
+    position: 'relative',
+    backgroundColor: '#0B1220',
+    backgroundImage: 'linear-gradient(135deg, #0B1220 0%, #16213E 45%, #1E3A5F 100%)',
+  },
   heroOverlay: {
     ...StyleSheet.absoluteFillObject,
     padding: 48,
-    backgroundColor: 'rgba(2,6,23,0.55)',
+    backgroundColor: 'rgba(2,6,23,0.35)',
   },
   heroBrand: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  logoImage: { width: 44, height: 44, borderRadius: 8 },
   heroBrandTitle: { color: '#fff', fontSize: 15, fontWeight: '700', letterSpacing: 0.4 },
   heroTitle: { color: '#fff', fontSize: 38, fontWeight: '700', letterSpacing: -0.6, lineHeight: 46 },
   heroSub: { color: '#E2E8F0', fontSize: 14, marginTop: 12, lineHeight: 22, maxWidth: 460 },
@@ -315,7 +308,6 @@ const styles = StyleSheet.create({
   rightInner: { width: '100%', maxWidth: 460, padding: Platform.OS === 'web' && Dimensions.get('window').width > 600 ? 48 : 24, flex: 1, justifyContent: 'center' },
   topRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 },
   brandRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  logoImageSm: { width: 38, height: 38, borderRadius: 8 },
   brandText: { fontSize: 14, fontWeight: '700' },
   themeBtn: { width: 34, height: 34, borderRadius: 8, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
 

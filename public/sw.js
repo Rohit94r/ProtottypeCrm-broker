@@ -1,9 +1,9 @@
-/* Umang CRM — PWA shell + Firebase Cloud Messaging (single service worker) */
+/* Nexus CRM — PWA shell + Firebase Cloud Messaging (single service worker) */
 importScripts('/firebase-config.js');
 importScripts('https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/10.14.1/firebase-messaging-compat.js');
 
-const CACHE_NAME = 'umang-crm-v3';
+const CACHE_NAME = 'nexus-crm-v3';
 const OFFLINE_URLS = ['/', '/index.html'];
 
 self.addEventListener('install', (event) => {
@@ -47,7 +47,7 @@ if (firebaseConfig.apiKey && firebaseConfig.projectId) {
   const messaging = firebase.messaging();
 
   messaging.onBackgroundMessage((payload) => {
-    const title = payload.notification?.title || payload.data?.title || 'Umang CRM';
+    const title = payload.notification?.title || payload.data?.title || 'Nexus CRM';
     const body = payload.notification?.body || payload.data?.body || '';
     const leadId = payload.data?.lead_id || '';
     const url =
@@ -59,7 +59,7 @@ if (firebaseConfig.apiKey && firebaseConfig.projectId) {
       icon: '/icons/icon-192.png',
       badge: '/icons/icon-192.png',
       data: { url, ...payload.data },
-      tag: payload.data?.notification_id || leadId || 'umang-crm',
+      tag: payload.data?.notification_id || leadId || 'nexus-crm',
       requireInteraction: false,
     });
   });

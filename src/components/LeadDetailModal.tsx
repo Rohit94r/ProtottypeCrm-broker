@@ -1455,7 +1455,14 @@ function DetailRow({ label, value, colors }: any) {
   );
 }
 
-function DetailField({ label, value, onChangeText, colors, placeholder, multiline }: any) {
+function DetailField({ label, value, onChangeText, colors, placeholder, multiline }: {
+  label: string;
+  value: string;
+  onChangeText: (v: string) => void;
+  colors: any;
+  placeholder?: string;
+  multiline?: boolean;
+}) {
   return (
     <View style={{ gap: 4 }}>
       <Text style={{ fontSize: 12, color: colors.textMuted, fontWeight: '600' }}>{label}</Text>

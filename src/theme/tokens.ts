@@ -13,6 +13,7 @@ export interface ThemeColors {
   text: string;
   textSecondary: string;
   textMuted: string;
+  muted: string;
   border: string;
   borderSoft: string;
   positive: string;
@@ -33,6 +34,7 @@ export const lightColors: ThemeColors = {
   text: '#1E140C',
   textSecondary: '#634A3C',
   textMuted: '#A38B7D',
+  muted: '#A38B7D',
   border: '#FED7AA',
   borderSoft: '#FFEDD5',
   positive: '#059669',
@@ -53,6 +55,7 @@ export const darkColors: ThemeColors = {
   text: '#FDFBF9',
   textSecondary: '#D1BCAE',
   textMuted: '#A38B7D',
+  muted: '#A38B7D',
   border: '#4A2F1D',
   borderSoft: '#29180E',
   positive: '#10B981',

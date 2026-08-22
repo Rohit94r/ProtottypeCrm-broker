@@ -1,12 +1,12 @@
 {
-  "name": "Umang CRM",
-  "short_name": "Umang CRM",
-  "description": "Umang Hometech LLP — mobile CRM for telecallers and sales teams",
+  "name": "Nexus CRM",
+  "short_name": "Nexus CRM",
+  "description": "Nexus Realty LLP — real estate CRM for telecallers and sales teams",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#0F172A",
-  "theme_color": "#2563EB",
+  "theme_color": "#E88B35",
   "scope": "/",
   "icons": [
     {

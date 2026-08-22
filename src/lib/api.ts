@@ -8,6 +8,12 @@ import {
   mockGetActAsId, mockSetActAsId, MOCK_MODE,
 } from './mockApi';
 
+declare module 'axios' {
+  interface AxiosRequestConfig {
+    bypassCache?: boolean;
+  }
+}
+
 const BACKEND_URL = 'http://localhost:8001';
 
 const REQUEST_TIMEOUT_MS = 15000;
