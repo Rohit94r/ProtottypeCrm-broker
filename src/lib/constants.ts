@@ -61,14 +61,15 @@ export const NAV_ITEMS = [
   // { key: 'whatsapp', path: '/(app)/whatsapp', label: 'WhatsApp Campaigns', icon: 'wa' },
   { key: 'tracking', path: '/(app)/admin-tracking', label: 'Employee Tracking', icon: 'tracking' },
   { key: 'employees', path: '/(app)/employees', label: 'Employees', icon: 'team' },
+  { key: 'our-projects', path: '/(app)/our-projects', label: 'Our Projects', icon: 'projects' },
   { key: 'negative', path: '/(app)/negative-leads', label: 'Not Interested', icon: 'archive' },
 ];
 
 // Which sidebar items each role can access
 export const ROLE_ACCESS: Record<string, string[]> = {
-  admin: ['dashboard', 'my-dashboard', 'pipeline', 'assign-leads', 'telecaller', 'sales-executive', 'bookings', 'loans', 'integrations', 'broker', 'tracking', 'employees', 'negative'],
+  admin: ['dashboard', 'my-dashboard', 'pipeline', 'assign-leads', 'telecaller', 'sales-executive', 'bookings', 'loans', 'integrations', 'broker', 'tracking', 'employees', 'our-projects', 'negative'],
   // Manager: no Bookings / Loan Department sidebar items (dashboard access unchanged).
-  manager: ['dashboard', 'my-dashboard', 'pipeline', 'assign-leads', 'integrations', 'broker', 'tracking', 'employees', 'negative'],
+  manager: ['dashboard', 'my-dashboard', 'pipeline', 'assign-leads', 'integrations', 'broker', 'tracking', 'employees', 'our-projects', 'negative'],
   telecaller: ['my-dashboard', 'telecaller', 'pipeline', 'negative'],
   site_visit: ['my-dashboard', 'sales-executive', 'pipeline'],
   sales_executive: ['my-dashboard', 'sales-executive', 'telecaller', 'pipeline'],
